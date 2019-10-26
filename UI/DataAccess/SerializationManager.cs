@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
-using ImageDebugger.Core.IoC;
-using ImageDebugger.Core.IoC.Interface;
+using HKCameraDev.Core.IoC.Interface;
 
 namespace UI.DataAccess
 {

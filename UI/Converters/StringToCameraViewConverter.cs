@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Controls;
-  using ImageDebugger.Core.ViewModels.ApplicationViewModel;
-  using ImageDebugger.Core.ViewModels.CameraViewModel;
+  using HKCameraDev.Core.ViewModels.ApplicationViewModel;
+  using HKCameraDev.Core.ViewModels.CameraViewModel;
   using UI.Views.CameraView;
 
 

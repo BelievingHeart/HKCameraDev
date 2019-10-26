@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using ImageDebugger.Core.ViewModels.CameraViewModel;
+using HKCameraDev.Core.ViewModels.CameraViewModel;
 
 namespace UI
 {

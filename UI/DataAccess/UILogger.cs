@@ -1,5 +1,5 @@
-﻿using ImageDebugger.Core.IoC.Interface;
-using ImageDebugger.Core.ViewModels.ApplicationViewModel;
+﻿using HKCameraDev.Core.IoC.Interface;
+using HKCameraDev.Core.ViewModels.ApplicationViewModel;
 
 namespace UI.DataAccess
 {

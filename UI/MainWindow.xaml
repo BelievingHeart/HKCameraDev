@@ -4,8 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:cameraHostView="clr-namespace:UI.Views.CameraHostView"
-        xmlns:applicationViewModel="clr-namespace:ImageDebugger.Core.ViewModels.ApplicationViewModel;assembly=ImageDebugger.Core"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:applicationViewModel="clr-namespace:HKCameraDev.Core.ViewModels.ApplicationViewModel;assembly=HKCameraDev.Core"
 
         mc:Ignorable="d"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"

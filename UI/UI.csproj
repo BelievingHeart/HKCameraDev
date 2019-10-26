@@ -58,26 +58,6 @@
     <StartupObject>UI.App</StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Accord, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
-      <HintPath>..\packages\Accord.3.4.0\lib\net46\Accord.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Accord.MachineLearning, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
-      <HintPath>..\packages\Accord.MachineLearning.3.4.0\lib\net46\Accord.MachineLearning.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Accord.Math, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
-      <HintPath>..\packages\Accord.Math.3.4.0\lib\net46\Accord.Math.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Accord.Math.Core, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
-      <HintPath>..\packages\Accord.Math.3.4.0\lib\net46\Accord.Math.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Accord.Statistics, Version=3.4.0.0, Culture=neutral, PublicKeyToken=fa1a88e29555ccf7">
-      <HintPath>..\packages\Accord.Statistics.3.4.0\lib\net46\Accord.Statistics.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="halcondotnet, Version=17.12.0.0, Culture=neutral, PublicKeyToken=4973bed59ddbf2b8, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Program Files\MVTec\HALCON-18.11-Progress\bin\dotnet35\halcondotnet.dll</HintPath>
@@ -87,10 +67,6 @@
     </Reference>
     <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
-    </Reference>
-    <Reference Include="MathNet.Numerics, Version=4.8.1.0, Culture=neutral, PublicKeyToken=null">
-      <HintPath>..\packages\MathNet.Numerics.4.8.1\lib\net461\MathNet.Numerics.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7">
       <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
@@ -126,7 +102,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="AttachedProperties\AttachedPropertyOwnerBase.cs" />
-    <Compile Include="Converters\EnumToMeasurementPageConverter.cs" />
     <Compile Include="Converters\EventToCommandBehaviour.cs" />
     <Compile Include="Converters\StringToCameraViewConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
@@ -138,18 +113,6 @@
     </Compile>
     <Compile Include="Views\CameraView\CameraView.xaml.cs">
       <DependentUpon>CameraView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FindLineSettingView\FindLineSettingItemView.xaml.cs">
-      <DependentUpon>FindLineSettingItemView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\FindLineSettingView\FindLineSettingListView.xaml.cs">
-      <DependentUpon>FindLineSettingListView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\HalconWindowPage.xaml.cs">
-      <DependentUpon>HalconWindowPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ImageInfoView.xaml.cs">
-      <DependentUpon>ImageInfoView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PageBase.cs" />
     <Compile Include="Views\UserControlBase.cs" />
@@ -171,10 +134,6 @@
     </Page>
     <Page Include="Views\CameraHostView\CameraHostView.xaml" />
     <Page Include="Views\CameraView\CameraView.xaml" />
-    <Page Include="Views\FindLineSettingView\FindLineSettingItemView.xaml" />
-    <Page Include="Views\FindLineSettingView\FindLineSettingListView.xaml" />
-    <Page Include="Views\HalconWindowPage.xaml" />
-    <Page Include="Views\ImageInfoView.xaml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -210,9 +169,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ImageDebugger.Core\ImageDebugger.Core.csproj">
+    <ProjectReference Include="..\HKCameraDev.Core\HKCameraDev.Core.csproj">
       <Project>{43275736-8146-432f-9ba0-fdcd1edcda8a}</Project>
-      <Name>ImageDebugger.Core</Name>
+      <Name>HKCameraDev.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -222,8 +181,6 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\PropertyChanged.Fody.2.6.1\build\PropertyChanged.Fody.props'))" />
     <Error Condition="!Exists('..\packages\Fody.4.2.1\build\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.4.2.1\build\Fody.targets'))" />
-    <Error Condition="!Exists('..\packages\Accord.3.4.0\build\Accord.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Accord.3.4.0\build\Accord.targets'))" />
   </Target>
   <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />
-  <Import Project="..\packages\Accord.3.4.0\build\Accord.targets" Condition="Exists('..\packages\Accord.3.4.0\build\Accord.targets')" />
 </Project>

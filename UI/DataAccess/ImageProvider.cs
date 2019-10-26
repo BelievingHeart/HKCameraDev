@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
-using ImageDebugger.Core.IoC.Interface;
+using HKCameraDev.Core.IoC.Interface;
 
 namespace UI.DataAccess
 {

@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using ImageDebugger.Core.ViewModels;
+using HKCameraDev.Core.ViewModels;
 
 namespace UI.Views
 {
