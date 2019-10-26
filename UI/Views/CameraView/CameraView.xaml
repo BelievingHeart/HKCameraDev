@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="UI.Views.CameraView.CameraView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:UI.Views.CameraView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:halconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
+             mc:Ignorable="d"
+             d:DesignHeight="600" d:DesignWidth="1000">
+    <UserControl.Resources>
+        <ResourceDictionary
+            Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/materialdesigntheme.checkbox.xaml" />
+    </UserControl.Resources>
+    <Grid>
+
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+        </Grid.ColumnDefinitions>
+        <halconDotNet:HSmartWindowControlWPF Grid.Column="0">
+            <halconDotNet:HIconicDisplayObjectWPF IconicObject="{Binding ImageDisplay}" />
+        </halconDotNet:HSmartWindowControlWPF>
+
+        <!-- Setting area -->
+        <StackPanel Grid.Column="1">
+            <!-- Open close -->
+            <GroupBox Header="Open close">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" TextAlignment="Center" Text="Open Camera" />
+                    <TextBlock Grid.Row="1" Grid.Column="0" TextAlignment="Center" Text="Toggle grabbing" />
+                    <TextBlock Grid.Row="2" Grid.Column="0" TextAlignment="Center" Text="Toggle real-time" />
+                    <ToggleButton Grid.Row="0" Grid.Column="1" IsChecked="{Binding IsOpened}"
+                                  ToolTip="Toggle camera open and close" />
+                    <ToggleButton Grid.Row="1" Grid.Column="1" IsChecked="{Binding IsGrabbing}"
+                                  ToolTip="Toggle grab start and stop" />
+                    <!-- Toggle real-time mode -->
+                    <ToggleButton Grid.Row="2" Grid.Column="1" IsChecked="{Binding RealTimeMode}"
+                                  ToolTip="Toggle real-time mode" />
+                </Grid>
+            </GroupBox>
+
+            <GroupBox Header="Triggers">
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal">
+
+                        <!-- Toggle trigger source -->
+                        <materialDesign:ColorZone
+                            Mode="PrimaryMid">
+                            <StackPanel
+                                Orientation="Horizontal"
+                                Margin="2">
+                                <RadioButton
+                                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                                    Margin="4"
+                                    IsChecked="True"
+                                    Content="Line0" Command="{Binding ToggleTriggerSourceCommand}"
+                                    CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" />
+                                <RadioButton
+                                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                                    Margin="4"
+                                    IsChecked="False"
+                                    Content="Software" Command="{Binding ToggleTriggerSourceCommand}"
+                                    CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}" />
+                            </StackPanel>
+                        </materialDesign:ColorZone>
+                    </StackPanel>
+                    <Button Margin="10" Command="{Binding SoftwareExecuteOnceCommand}">Software trigger</Button>
+                </StackPanel>
+            </GroupBox>
+
+            <!-- Image serialization -->
+
+            <GroupBox Header="Image serialization" Margin="0 20">
+                <StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBox Grid.Column="0" materialDesign:HintAssist.Hint="Image directory"
+                                 IsEnabled="{Binding ShouldSaveImage}"
+                                 Text="{Binding SerializeDir, Mode=OneWayToSource, UpdateSourceTrigger=PropertyChanged}" />
+                        <CheckBox Grid.Column="1" Style="{StaticResource MaterialDesignCheckBox}" ToolTip="Enable image serialization"
+                                  IsChecked="{Binding ShouldSaveImage}" />
+                    </Grid>
+
+                    <StackPanel Orientation="Horizontal" Margin="3 10 0 0">
+                        <TextBlock HorizontalAlignment="Left">Num images saved each time: </TextBlock>
+                        <TextBlock Text="{Binding SaveImageBatch}" />
+                    </StackPanel>
+                    <Slider TickFrequency="1" TickPlacement="BottomRight" Orientation="Horizontal" Minimum="1"
+                            Maximum="10" Value="{Binding SaveImageBatch}" />
+                    
+                    <StackPanel Orientation="Horizontal">
+                        <ProgressBar
+                            Style="{StaticResource MaterialDesignCircularProgressBar}"
+                            Maximum="{Binding SaveImageBatch}" Value="{Binding NumImagesInMemory}"
+                            HorizontalAlignment="Center" Margin="10 0" />
+                        <Button Command="{Binding ResetSaveImageCommand}">Reset</Button>
+                    </StackPanel>
+
+                </StackPanel>
+            </GroupBox>
+        </StackPanel>
+    </Grid>
+
+</UserControl>
