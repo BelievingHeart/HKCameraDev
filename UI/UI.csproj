@@ -105,8 +105,6 @@
     <Compile Include="Converters\EventToCommandBehaviour.cs" />
     <Compile Include="Converters\StringToCameraViewConverter.cs" />
     <Compile Include="Converters\ValueConverterBase.cs" />
-    <Compile Include="DataAccess\ImageProvider.cs" />
-    <Compile Include="DataAccess\SerializationManager.cs" />
     <Compile Include="DataAccess\UILogger.cs" />
     <Compile Include="Views\CameraHostView\CameraHostView.xaml.cs">
       <DependentUpon>CameraHostView.xaml</DependentUpon>
