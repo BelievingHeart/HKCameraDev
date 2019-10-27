@@ -414,7 +414,7 @@ namespace HKCameraDev.Core.ViewModels.CameraViewModel
 
         #region Command Execution
 
-        private void SoftwareExecuteOnce()
+        public void SoftwareExecuteOnce()
         {
             var ret = _myCamera.MV_CC_SetCommandValue_NET("TriggerSoftware");
             if (ret != 0)
