@@ -32,7 +32,6 @@ using System.Windows.Controls;
         private static UserControl RetrievePage(string cameraName)
         {
             var dataContext = HKCameraManager.GetCameraByName(cameraName);
-            dataContext.MessageQueue = ApplicationViewModel.Instance.MessageQueue;
             
             return new CameraView()
             {

@@ -62,7 +62,7 @@ namespace HKCameraDev.Core.IoC
 
         public static void Log(string message)
         {
-            Get<IUILogger>().Log("Warning: " + message);
+            Get<IUILogger>()?.Log("Warning: " + message);
         }
 
     }

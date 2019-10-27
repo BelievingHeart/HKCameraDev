@@ -112,7 +112,7 @@ namespace HKCameraDev.Core.ViewModels.CameraViewModel
         /// <param name="message">Message to log</param>
         private void Log(string message)
         {
-            MessageQueue?.Enqueue("Waring: " + message);
+            IoC.IoC.Log("Warning: " + message);
         }
 
 
@@ -314,10 +314,7 @@ namespace HKCameraDev.Core.ViewModels.CameraViewModel
         /// </summary>
         public string Name { get; set; }
 
-        /// <summary>
-        /// Message queue for logging
-        /// </summary>
-        public ISnackbarMessageQueue MessageQueue { get; set; }
+
 
         /// <summary>
         /// Internal handle of the camera
